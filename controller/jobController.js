@@ -35,3 +35,14 @@ export const getAllJobs = async (req, res) => {
     res.status(500).json({ error: err })
   }
 }
+
+export const getJobById = async (req, res) => {
+  const jobId = req.params.id
+  try {
+    const job = await Job.findById(jobId)
+    res.status(200).json({ job })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ error: err })
+  }
+}
