@@ -18,7 +18,7 @@ const mongodbConfig = {
 }
 
 // body parser
-app.use(Express.urlencoded())
+app.use(Express.urlencoded({ extended: true }))
 app.use(Express.json())
 
 app.use('/public', publicRoutes)
