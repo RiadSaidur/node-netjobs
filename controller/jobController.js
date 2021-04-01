@@ -27,8 +27,28 @@ export const addNewJob = async (req, res) => {
 }
 
 export const getAllJobs = async (req, res) => {
+  const queryOptions = {}
+  const query = req.query
+  if(query.category) {
+    const categories = query.category.split(',')
+    queryOptions.category = {
+      $in: categories
+    }
+  }
+  if(query.salaryFrom && query.salaryTo) {
+    queryOptions['salary.ammount'] = {
+      $gte: query.salaryFrom,
+      $lte: query.salaryTo
+    }
+  }
+  if(query.experience) {
+    queryOptions['experience.requiredExperience'] = {
+      $lte: +query.experience
+    }
+  }
+  
   try {
-    const jobs = await Job.find()
+    const jobs = await Job.find(queryOptions).exec()
     res.status(200).json({ jobs })
   } catch (err) {
     console.log(err)

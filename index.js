@@ -29,6 +29,8 @@ app.get('/', (req, res) => {
   })
 })
 
-mongoose.connect(mongodbURI, mongodbConfig, () => console.log('connected to db'))
+mongoose.connect(mongodbURI, mongodbConfig, () => {
+  console.log('connected to db')
+})
 
 app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`))
