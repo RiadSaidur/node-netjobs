@@ -23,11 +23,6 @@ app.use(Express.json())
 
 app.use('/public', publicRoutes)
 app.use('/private', privateRoutes)
-app.get('/', (req, res) => {
-  res.json({
-    mongodbURI
-  })
-})
 
 mongoose.connect(mongodbURI, mongodbConfig, () => {
   console.log('connected to db')
