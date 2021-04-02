@@ -11,7 +11,7 @@ import { privateRoutes } from './routes/private/privateRoutes.js'
 
 const app = Express()
 const PORT = process.env.PORT || 5000
-const mongodbURI = `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@netjobs.jglqn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+const mongodbURI = `mongodb+srv://${process.env.USER}:${process.env.MONGODB_PASSWORD}@netjobs.jglqn.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`
 const mongodbConfig = {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -26,6 +26,5 @@ app.use('/private', privateRoutes)
 
 mongoose.connect(mongodbURI, mongodbConfig, () => {
   console.log('connected to db')
+  app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`))
 })
-
-app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`))
