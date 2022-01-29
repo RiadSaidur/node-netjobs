@@ -1,0 +1,7 @@
+POST http://localhost:5000/public/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+  "email": "hello@world.com",
+  "password": "##something123##"
+}

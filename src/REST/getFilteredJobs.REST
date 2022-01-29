@@ -1,0 +1,1 @@
+GET  http://localhost:5000/public/jobs?salaryFrom=1000&salaryTo=50000&category=shitposter,senior&experience=4 HTTP/1.1

@@ -1,0 +1,20 @@
+POST http://localhost:5000/private/job HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvQHdvcmxkLmNvbSIsImlhdCI6MTY0MzQ0Nzg4NX0.6J46bDNvdp-EdmQS7JIA2xEElh8LLk4N5F-Cz_p6WoI
+
+{
+  "company_name": "Bittu inc",
+  "position": "Jr. Shitposter",
+  "experience": {
+    "needExperience": false,
+    "requiredExperience": 0
+  },
+  "salary": {
+    "negotiable": true,
+    "ammount": 30000
+  },
+  "category": [
+    "shitposter",
+    "junior"
+  ]
+}

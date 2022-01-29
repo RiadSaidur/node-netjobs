@@ -57,6 +57,71 @@ JOB_SCHEMA = {
   }]
 }
 ```
+### Sample **POST request** to **Signin**
+```json
+POST http://localhost:5000/public/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+  "email": "hello@world.com",
+  "password": "##something123##"
+}
+```
+### Sample **POST response** to **Signin**
+```json
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 322
+ETag: W/"142-864/Nogd1zPgS9bTZ6/4fWVAzrM"
+Date: Sat, 29 Jan 2022 09:28:35 GMT
+Connection: close
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvQHdvcmxkLmNvbSIsImlhdCI6MTY0MzQ0ODUxNX0.YQVsLNlH_2zCuGyIZPRStqfWibBgnbtk7qyueRb3KHI",
+  "profile": {
+    "_id": "61f508adb0f90529007e0f60",
+    "name": "syd",
+    "email": "hello@world.com",
+    "createdAt": "2022-01-29T09:28:13.563Z",
+    "updatedAt": "2022-01-29T09:28:13.563Z",
+    "__v": 0
+  }
+}
+```
+### Sample **POST request** to **Signup**
+```json
+POST http://localhost:5000/public/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+  "name": "syd",
+  "email": "hello@world.com",
+  "password": "##something123##"
+}
+```
+### Sample **POST response** to **Signup**
+```json
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 322
+ETag: W/"142-hbiq+s9JNJsybqyrwCDXAnwjWW0"
+Date: Sat, 29 Jan 2022 09:28:13 GMT
+Connection: close
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvQHdvcmxkLmNvbSIsImlhdCI6MTY0MzQ0ODQ5M30.YdAWWIjlih3_Cg79-ey2APtMs8u-lWcAwyKr4SXQCrM",
+  "profile": {
+    "_id": "61f508adb0f90529007e0f60",
+    "name": "syd",
+    "email": "hello@world.com",
+    "createdAt": "2022-01-29T09:28:13.563Z",
+    "updatedAt": "2022-01-29T09:28:13.563Z",
+    "__v": 0
+  }
+}
+```
 ### Sample **GET request** to **Get All Jobs**
 ```json
 GET  http://localhost:5000/public/jobs HTTP/1.1
@@ -208,6 +273,7 @@ Connection: close
 ```json
 POST http://localhost:5000/private/job HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsnasdjkInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvQHdvcmxkLmNvbSIsImlhdCI6MTY0ajsbdMzQ0Nzg4NX0.6J46bDNaskndvdp-EdmQS7JIA2xEElh8LLk4N5F-Cz_p6WoI
 
 {
   "company_name": "Bittu inc",
