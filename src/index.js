@@ -12,8 +12,8 @@ import { auth_required } from './middleware/auth.middleware.js'
 
 const app = Express()
 const PORT = process.env.PORT || 5000
-// const mongodbURI = `mongodb+srv://${process.env.USER}:${process.env.MONGODB_PASSWORD}@netjobs.jglqn.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`
-const mongodbURI = process.env.MONGODB_URI
+const mongodbURI = `mongodb+srv://${process.env.USER}:${process.env.MONGODB_PASSWORD}@netjobs.jglqn.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`
+// const mongodbURI = process.env.MONGODB_URI
 const mongodbConfig = {
   useNewUrlParser: true,
   useUnifiedTopology: true
